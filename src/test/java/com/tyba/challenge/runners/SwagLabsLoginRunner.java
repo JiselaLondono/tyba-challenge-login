@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features/swag_labs_login.feature",
-        glue = "com.tyba.challenge.stepdefinitions",
-        snippets = CucumberOptions.SnippetType.CAMELCASE)
+    features = "src/test/resources/features/swag_labs_login.feature",
+    glue = "com.tyba.challenge.stepdefinitions",
+    snippets = CucumberOptions.SnippetType.CAMELCASE)
 public class SwagLabsLoginRunner {}

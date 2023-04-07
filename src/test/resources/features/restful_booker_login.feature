@@ -26,4 +26,3 @@ Característica: Login en API Restful-Booker
       | Jisela   | password456 |
       | admin    |             |
       |          | password123 |
-
