@@ -8,6 +8,8 @@ import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
 import net.thucydides.core.annotations.Managed;
 import org.openqa.selenium.WebDriver;
 
+import static com.tyba.challenge.utils.Resources.URI;
+
 public class Hooks {
 
     @Managed(driver = "chrome")
@@ -17,6 +19,6 @@ public class Hooks {
     public void setStage() {
         OnStage.setTheStage(
                 Cast.whereEveryoneCan(
-                        BrowseTheWeb.with(herBrowser), CallAnApi.at("https://restful-booker.herokuapp.com")));
+                        BrowseTheWeb.with(herBrowser), CallAnApi.at(URI.getValue())));
     }
 }

@@ -1,5 +1,6 @@
 package com.tyba.challenge.tasks;
 
+import static com.tyba.challenge.utils.Resources.END_POINT_AUTH;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.rest.questions.ResponseConsequence.seeThatResponse;
 
@@ -21,7 +22,7 @@ public class Login implements Task {
   @Override
   public <T extends Actor> void performAs(T actor) {
     actor.attemptsTo(
-        Post.to("/auth")
+        Post.to(END_POINT_AUTH.getValue())
             .with(request -> request.contentType(ContentType.JSON).body(credentials).log().all()));
     actor.should(seeThatResponse(response -> response.log().all()));
   }
