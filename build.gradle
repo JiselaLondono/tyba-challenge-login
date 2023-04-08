@@ -19,22 +19,21 @@ buildscript{
         jcenter()
     }
     dependencies {
-        classpath('net.serenity-bdd:serenity-gradle-plugin:2.1.5')
-        classpath('net.serenity-bdd:serenity-single-page-report:2.1.5')
+        classpath('net.serenity-bdd:serenity-gradle-plugin:3.3.2')
+        classpath('net.serenity-bdd:serenity-single-page-report:3.3.2')
     }
 }
 
 apply plugin: 'java'
 apply plugin: 'idea'
-apply plugin: 'net.serenity-bdd.aggregator'
+apply plugin: 'net.serenity-bdd.serenity-gradle-plugin'
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
 ext{
-    serenityVersion = '2.1.5'
-    serenityCucumberVersion = '2.2.6'
+    serenityVersion = '3.3.2'
 }
 
 serenity {
@@ -46,10 +45,11 @@ dependencies {
     testImplementation 'org.assertj:assertj-core:3.9.1'
     testImplementation 'org.slf4j:slf4j-simple:1.7.7'
     implementation 'com.google.googlejavaformat:google-java-format:1.16.0'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.14.2'
     implementation "net.serenity-bdd:serenity-core:$rootProject.ext.serenityVersion"
     implementation "net.serenity-bdd:serenity-junit:$rootProject.ext.serenityVersion"
     implementation "net.serenity-bdd:serenity-screenplay:$rootProject.ext.serenityVersion"
-    implementation "net.serenity-bdd:serenity-cucumber5:$rootProject.ext.serenityCucumberVersion"
+    implementation "net.serenity-bdd:serenity-cucumber:$rootProject.ext.serenityVersion"
     implementation "net.serenity-bdd:serenity-screenplay-webdriver:$rootProject.ext.serenityVersion"
     implementation "net.serenity-bdd:serenity-screenplay-rest:$rootProject.ext.serenityVersion"
     implementation "net.serenity-bdd:serenity-reports:$rootProject.ext.serenityVersion"
